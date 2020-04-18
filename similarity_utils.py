@@ -47,7 +47,7 @@ def init_data_dicts(data_dict, n_splits=1, inplace=True):
         segments_fft_dict = {}
         for i,seg in enumerate(np.split(value['gs'], n_splits)):
             segments_dict[i] = seg
-            freq, spectrum = signal.welch(seg[:,0], fs=value['sr'], nperseg=1000)
+            freq, spectrum = signal.welch(seg[:,0], fs=value['sr'], nperseg=2000)
             segments_fft_dict[i] = spectrum
         value['segment'] = segments_dict
         value['segment_fft'] = segments_fft_dict
